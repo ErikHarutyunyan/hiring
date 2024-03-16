@@ -1,0 +1,58 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	height: 100%;
+	font-family: "Roboto";
+}
+
+footer {
+	margin-top: auto;
+}
+
+#root {
+	max-width: 360px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+main {
+	overflow-y: scroll;
+	max-height: calc(617px - 56px);
+	height: 100%;
+}
+.maplibregl-canvas {
+	position: absolute;
+}
+.maplibregl-marker {
+	border-radius: 50%;
+	left: 0px;
+	top: -15px;
+}
+
+.customMarker svg {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.marker::after {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	transform: translate(-50%, -30%);
+	content: attr(data-number);
+	font-weight: 700;
+	font-size: 10px;
+	color: #202124;
+}
+.marker[data-completed="true"]::after {
+	color: #fff;
+}
+
+.marker[data-completed="true"] .circleNumber {
+	fill: #1329fe;
+	stroke: #fff;
+}
